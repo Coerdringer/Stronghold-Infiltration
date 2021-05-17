@@ -11,7 +11,21 @@ https://forum.unity.com/threads/check-if-object-is-visible-to-main-camera.462777
 XR Rig set up
 https://www.youtube.com/watch?v=_Zrde_WTaiI
 
+field of view
+https://www.youtube.com/watch?v=j1-OyLo77ss
+NOTE TO MYSELF - in this video, 13:34, he explains how to show visual things (gizmos) to test if any of this is working
 
+field of view 3d visualization
+https://www.youtube.com/watch?v=znZXmmyBF-o
+NOTE TO MYSELF - 2:32 wrócić i zrozumieć, 
+
+making an Editor folder - anything in there, isn't compiled when the game is run
+~14:00
+
+waypoints
+https://www.youtube.com/watch?v=5q4JHuJAAcQ
+
+BRUH MOMENT - 21:52
 
 TEMP
 
