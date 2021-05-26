@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
+    //until i finish the project, the variables have to be public, so the FOVEditor script can access them
+    
     public float radius;
     [Range(0,360)] //the enemy can't have too big vision range, cause it's just a human
     public float angle;
@@ -15,15 +17,35 @@ public class FieldOfView : MonoBehaviour
     public LayerMask obstructionMask;
 
     public bool playerDetection;
-    
+
+    //[SerializeField]
+    //Transform Enemy;
+
+    //private GameObject sphere;
+    //public bool sphereCheck;
+
+    /*[SerializeField]
+    [Range(0,200)]
+    public float sphereCheckRadius = 74;*/
+
+    /*[SerializeField]
+    float sphereHeight;*/
+
     // Start is called before the first frame update
     void Start()
     {
         playerRef = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(FOVRoutine());
+        //StartCoroutine(SphereRoutine());
+        //SphereGeneration();
     }
 
-    
+    private void Update()
+    {
+        /*if (sphere != null)
+            sphere.transform.position = Enemy.position;*/
+    }
+
     //coroutine, so it is less performance heavy - it searches for a player every 5 seconds, instead of the whole time
     private IEnumerator FOVRoutine()
     {
@@ -38,7 +60,19 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
-    private void FieldOfViewCheck() //NOTE TO MYSELF IN FUTURE - NIE BÓJ SIÊ ZAJRZEÆ DO VIDEO GOŒCIA PRZY OPISYWANIU PRACKI
+    private IEnumerator SphereRoutine() //TODO: there should appear only 1 sphere when the player is near, and it should disappear when the player is out of range
+    {
+        WaitForSeconds wait = new WaitForSeconds(0.6f);
+
+
+        while (true)
+        {
+            yield return wait;
+            //PlayerProximityCheck();
+        }
+    }
+
+    private void FieldOfViewCheck() //NOTE TO MYSELF IN FUTURE - NIE BÓJ SIÊ ZAJRZEÆ DO VIDEO GOŒCIA PRZY OPISYWANIU PRACKI - sprawdŸ plik "links for sources"
     {
 
         //don't care what type of collider will be found, it is only going to be known, that it is going to be a collider - it will be looking for a player
@@ -63,7 +97,9 @@ public class FieldOfView : MonoBehaviour
                 //aim the raycast towards the player | limmiting the raycast to the distance to the target, stop the raycast if it hits anything that obstructs a view
                 //its a positive check, if this fails, it doesn't hit any obstructionMask, it CAN see the player
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
+                {
                     playerDetection = true;
+                }
                 else playerDetection = false;
             }
             else
@@ -74,10 +110,78 @@ public class FieldOfView : MonoBehaviour
         else if (playerDetection)
             playerDetection = false;
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    
+    
+    
+    
+    
+    //===============================================================================================================================
+    
+    /*private void PlayerProximityCheck()
     {
-        
-    }
+        sphereCheck = false;
+
+        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, sphereCheckRadius, targetMask);
+
+        if (rangeChecks.Length != 0)
+        {
+            Transform target = rangeChecks[0].transform;
+            float distanceToTarget = Vector3.Distance(transform.position, target.position);
+            float maxDistanceToTarget = sphereCheckRadius;
+
+            if (distanceToTarget <= maxDistanceToTarget && sphereCheck == false)
+            {
+                GameObject instance = (GameObject)SphereGeneration();
+                //SphereGeneration();
+                sphereCheck = true;
+
+                if (distanceToTarget >= maxDistanceToTarget)
+                {
+                    sphereCheck = false;
+                    Destroy(instance);
+                }
+            }
+            //else if (distanceToTarget >= maxDistanceToTarget)
+            //{
+                //sphereCheck = false;
+               // Destroy(instance);
+            //}
+        }
+
+    }*/
+    
+    /*private void PlayerProximityCheck()
+    {
+        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, sphereCheckRadius, targetMask);
+
+        sphereCheck = false;
+
+        if (rangeChecks.Length != 0)
+        {
+            Transform target = rangeChecks[0].transform;
+            Vector3 directionToTarget = (target.position - transform.position).normalized;
+            float distanceToTarget = Vector3.Distance(transform.position, target.position);
+            float maxDistanceToTarget = sphereCheckRadius;
+
+            if (Physics.Raycast(transform.position, directionToTarget, maxDistanceToTarget) && sphereCheck == false)
+            {
+                SphereGeneration();
+                sphereCheck = true;
+            }
+            else if (distanceToTarget >= maxDistanceToTarget)
+            {
+                //sphereCheck = false;
+                Destroy(sphere);
+            }
+
+        }
+    }*/
+    
+    /*object SphereGeneration()
+    {
+        Vector3 center = Enemy.position + Vector3.up * sphereHeight;
+        sphere = (GameObject)Instantiate(Resources.Load("TransparentFOVSphere"), center, Quaternion.identity);
+        return sphere;
+    }*/
 }
