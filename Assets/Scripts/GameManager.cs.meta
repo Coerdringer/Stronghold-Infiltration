@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: d8b77400ae267c84dadcddbf87c1bf3c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - mainMenu: {fileID: 6121061169325490301, guid: 6e37854be38e357499fa46262d235a9f,
+      type: 3}
+  - playerHasBeenDetectedScreenUI: {fileID: 137761702896264695, guid: 2a22d7c9d0e382947a48300ebc736f76,
+      type: 3}
+  - pauseMenuUI: {fileID: 5841382083071778479, guid: 75d5354f623e4ad4598ae9f12a9481d1,
+      type: 3}
+  - playerRef: {fileID: 1359328109617525607, guid: 465726006ea8b8b4e9fe6e663a0abb81,
+      type: 3}
+  - UI: {fileID: 4414160067676893235, guid: 294dc3798c167164eb51e1b0d44c5073, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

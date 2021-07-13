@@ -9,7 +9,7 @@ public class FieldOfView : MonoBehaviour
     
     public float radius;
     [Range(0,360)] //the enemy can't have too big vision range, cause it's just a human
-    public float angle;
+    public float angle = 140;
 
     public GameObject playerRef;
 
@@ -18,49 +18,64 @@ public class FieldOfView : MonoBehaviour
 
     public bool playerDetection;
 
-    //[SerializeField]
-    //Transform Enemy;
+    [SerializeField]
+    Transform sphereTarget;
 
-    //private GameObject sphere;
-    //public bool sphereCheck;
+    [SerializeField]
+    Transform warningTarget;
 
-    /*[SerializeField]
+    private GameObject sphere;
+    private bool sphereCheck = false;
+
+    [SerializeField]
+    GameObject warningObject;
+
+    Animator warningAnimator;
+
+    [SerializeField]
     [Range(0,200)]
-    public float sphereCheckRadius = 74;*/
+    public float sphereCheckRadius = 74;
 
-    /*[SerializeField]
-    float sphereHeight;*/
+    [SerializeField]
+    float sphereHeight;
+
+    [SerializeField]
+    float warningHeight = 14;
+
+    [SerializeField]
+    float detectionTime;
 
     // Start is called before the first frame update
     void Start()
     {
         playerRef = GameObject.FindGameObjectWithTag("Player");
+        warningAnimator = warningObject.GetComponent<Animator>();
+
         StartCoroutine(FOVRoutine());
-        //StartCoroutine(SphereRoutine());
-        //SphereGeneration();
+        StartCoroutine(SRoutine());
     }
 
     private void Update()
     {
-        /*if (sphere != null)
-            sphere.transform.position = Enemy.position;*/
+        SpherePosition();
     }
 
-    //coroutine, so it is less performance heavy - it searches for a player every 5 seconds, instead of the whole time
+    //coroutine, so it is less performance heavy - it searches for a player every Nf seconds, instead of the whole time
     private IEnumerator FOVRoutine()
     {
         
         //this method only works inside the coroutine
-        WaitForSeconds wait = new WaitForSeconds(0.2f);
+        WaitForSeconds wait = new WaitForSeconds(0.6f);
 
         while (true)
         {
             yield return wait;
             FieldOfViewCheck();
+            PlayerDetection();
         }
     }
 
-    private IEnumerator SphereRoutine() //TODO: there should appear only 1 sphere when the player is near, and it should disappear when the player is out of range
+    private IEnumerator SRoutine() //TODO: there should appear only 1 sphere when the player is near, and it should disappear when the player is out of range
     {
         WaitForSeconds wait = new WaitForSeconds(0.6f);
 
@@ -68,8 +83,22 @@ public class FieldOfView : MonoBehaviour
         while (true)
         {
             yield return wait;
-            //PlayerProximityCheck();
+            PlayerProximityCheck();
         }
+    }
+
+    private IEnumerator WRoutine(float time)
+    {
+        //warningAnimator.SetBool("isTimeUp", false);
+        yield return new WaitForSeconds(time);
+        warningAnimator.SetBool("isTimeUp", true);
+    }
+
+    private IEnumerator WaitBeforeAlert(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        warningAnimator.SetBool("alert", true);
     }
 
     private void FieldOfViewCheck() //NOTE TO MYSELF IN FUTURE - NIE BÓJ SIÊ ZAJRZEÆ DO VIDEO GOŒCIA PRZY OPISYWANIU PRACKI - sprawdŸ plik "links for sources"
@@ -93,11 +122,12 @@ public class FieldOfView : MonoBehaviour
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
                 //FINAL RAYCAST TO DETERMINE IF WE CAN ACTUALLY SEE THE PLAYER
-                //starting the raycast from the center of our enemy (I may change it up a little, so it does it from the eyes, or maybe I'll put this script on a certain object on the head, so it doesn't matters)
+                //starting the raycast from the center of our enemy (I may change it up a little, so it does it from the eyes, or maybe I'll put this script on a certain object on the head, so it doesn't matter)
                 //aim the raycast towards the player | limmiting the raycast to the distance to the target, stop the raycast if it hits anything that obstructs a view
                 //its a positive check, if this fails, it doesn't hit any obstructionMask, it CAN see the player
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
                 {
+                    //Debug.Log(1);
                     playerDetection = true;
                 }
                 else playerDetection = false;
@@ -108,19 +138,14 @@ public class FieldOfView : MonoBehaviour
         //if the playere was in the view of the enemy and it no longer is - I need to make sure that the enemies "remember" that
         //if it sees the player, but it isn't in range, it "can't" see the player, thus setting the range
         else if (playerDetection)
+        {
             playerDetection = false;
+        }
     }
     
-    
-    
-    
-    
-    
-    //===============================================================================================================================
-    
-    /*private void PlayerProximityCheck()
+    private void PlayerProximityCheck()
     {
-        sphereCheck = false;
+        //sphereCheck = false;
 
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, sphereCheckRadius, targetMask);
 
@@ -130,58 +155,65 @@ public class FieldOfView : MonoBehaviour
             float distanceToTarget = Vector3.Distance(transform.position, target.position);
             float maxDistanceToTarget = sphereCheckRadius;
 
-            if (distanceToTarget <= maxDistanceToTarget && sphereCheck == false)
-            {
-                GameObject instance = (GameObject)SphereGeneration();
-                //SphereGeneration();
-                sphereCheck = true;
-
-                if (distanceToTarget >= maxDistanceToTarget)
-                {
-                    sphereCheck = false;
-                    Destroy(instance);
-                }
-            }
-            //else if (distanceToTarget >= maxDistanceToTarget)
-            //{
-                //sphereCheck = false;
-               // Destroy(instance);
-            //}
-        }
-
-    }*/
-    
-    /*private void PlayerProximityCheck()
-    {
-        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, sphereCheckRadius, targetMask);
-
-        sphereCheck = false;
-
-        if (rangeChecks.Length != 0)
-        {
-            Transform target = rangeChecks[0].transform;
-            Vector3 directionToTarget = (target.position - transform.position).normalized;
-            float distanceToTarget = Vector3.Distance(transform.position, target.position);
-            float maxDistanceToTarget = sphereCheckRadius;
-
-            if (Physics.Raycast(transform.position, directionToTarget, maxDistanceToTarget) && sphereCheck == false)
+            if (maxDistanceToTarget >= distanceToTarget && sphereCheck == false)
             {
                 SphereGeneration();
-                sphereCheck = true;
             }
-            else if (distanceToTarget >= maxDistanceToTarget)
-            {
-                //sphereCheck = false;
-                Destroy(sphere);
-            }
+        }
+        if (rangeChecks.Length == 0)
+        {
+            //Debug.Log(1);
+            sphereCheck = false;
+            Destroy(sphere);
+        }
+
+    }
+
+    private void PlayerDetection()
+    {
+        warningAnimator.SetBool("isTimeUp", false);
+
+        if (playerDetection == true)
+        {
+            warningAnimator.SetBool("playerDetection", true);
+            StartCoroutine(WaitBeforeAlert(3.2f));
+
+            if (warningAnimator.GetBool("alert"))
+                FindObjectOfType<GameManager>().Detection();
+        }
+        else if (playerDetection == false)
+        {
+            warningAnimator.SetBool("playerDetection", false);
+            warningAnimator.SetBool("alert", false);
+
+            StartCoroutine(WRoutine(12f));
+            
 
         }
-    }*/
+    }
     
-    /*object SphereGeneration()
+    object SphereGeneration()
     {
-        Vector3 center = Enemy.position + Vector3.up * sphereHeight;
+        Vector3 center = sphereTarget.position + Vector3.up * sphereHeight;
         sphere = (GameObject)Instantiate(Resources.Load("TransparentFOVSphere"), center, Quaternion.identity);
-        return sphere;
-    }*/
+        sphereCheck = true;
+        return sphereCheck;
+    }
+
+    private void SpherePosition()
+    {
+        if (sphere != null)
+            sphere.transform.position = sphereTarget.position;
+    }
+
+    //private void WarningPosition()
+    //{
+    //    Vector3 aboveHead = sphereTarget.position + Vector3.up * warningHeight;
+
+    //    if (warningObject != null)
+    //    {
+    //        warning.transform.position = aboveHead;
+    //        warning.transform.LookAt(playerRef.transform);
+    //    }
+    //}
 }

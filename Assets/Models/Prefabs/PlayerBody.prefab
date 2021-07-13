@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4582097776655003648
+--- !u!1 &1359328109208132954
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4582097776655003649}
-  - component: {fileID: 4582097776655003652}
-  - component: {fileID: 4582097776655003655}
-  - component: {fileID: 4582097776655003654}
+  - component: {fileID: 1359328109208132955}
+  - component: {fileID: 1359328109208132958}
+  - component: {fileID: 1359328109208132957}
+  - component: {fileID: 1359328109208132956}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -19,35 +19,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4582097776655003649
+--- !u!4 &1359328109208132955
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4582097776655003648}
+  m_GameObject: {fileID: 1359328109208132954}
   m_LocalRotation: {x: -0.00178995, y: -0.0016289355, z: 0.020901041, w: 0.9997786}
   m_LocalPosition: {x: 0.0020033817, y: -0.048998576, z: -0.011995211}
   m_LocalScale: {x: 1, y: 2.086409, z: 1}
   m_Children: []
-  m_Father: {fileID: 4582097777061371394}
+  m_Father: {fileID: 1359328109617525592}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -0.201, y: -0.191, z: 2.396}
---- !u!33 &4582097776655003652
+--- !u!33 &1359328109208132958
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4582097776655003648}
+  m_GameObject: {fileID: 1359328109208132954}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4582097776655003655
+--- !u!23 &1359328109208132957
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4582097776655003648}
+  m_GameObject: {fileID: 1359328109208132954}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -82,20 +82,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4582097776655003654
+--- !u!65 &1359328109208132956
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4582097776655003648}
+  m_GameObject: {fileID: 1359328109208132954}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &4582097776826457232
+--- !u!1 &1359328109516829130
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4582097776826457233}
+  - component: {fileID: 1359328109516829131}
   m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Untagged
@@ -111,21 +111,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4582097776826457233
+--- !u!4 &1359328109516829131
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4582097776826457232}
+  m_GameObject: {fileID: 1359328109516829130}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -49.25202, y: 13.769004, z: -42.164024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4582097777061371394}
+  m_Father: {fileID: 1359328109617525592}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4582097777061371453
+--- !u!1 &1359328109617525607
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,40 +133,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4582097777061371394}
-  - component: {fileID: 4582097777061371392}
-  - component: {fileID: 4582097777061371395}
-  m_Layer: 0
+  - component: {fileID: 1359328109617525592}
+  - component: {fileID: 1359328109617525594}
+  - component: {fileID: 1359328109617525625}
+  - component: {fileID: 1359328109617525606}
+  m_Layer: 8
   m_Name: PlayerBody
-  m_TagString: GameController
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4582097777061371394
+--- !u!4 &1359328109617525592
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4582097777061371453}
-  m_LocalRotation: {x: 0.0008536376, y: 0.33382928, z: 0.016374625, w: -0.94249094}
-  m_LocalPosition: {x: 315.73, y: 64.14, z: 273.26}
-  m_LocalScale: {x: 2.3443267, y: 2.9793634, z: 2.3443267}
+  m_GameObject: {fileID: 1359328109617525607}
+  m_LocalRotation: {x: -0.010576896, y: -0.4010949, z: 0.012529421, w: -0.91588974}
+  m_LocalPosition: {x: 468.17, y: 69.542, z: 183.63}
+  m_LocalScale: {x: 2.3443267, y: 2.0440562, z: 2.3443267}
   m_Children:
-  - {fileID: 4582097776655003649}
-  - {fileID: 4582097777832535701}
-  - {fileID: 4582097776826457233}
+  - {fileID: 1359328109208132955}
+  - {fileID: 1359328110389857231}
+  - {fileID: 1359328109516829131}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -0.719, y: -398.997, z: -1.736}
---- !u!143 &4582097777061371392
+  m_LocalEulerAnglesHint: {x: 1.686, y: -312.712, z: -0.829}
+--- !u!143 &1359328109617525594
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4582097777061371453}
+  m_GameObject: {fileID: 1359328109617525607}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -178,27 +179,139 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4582097777061371395
+--- !u!114 &1359328109617525625
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4582097777061371453}
+  m_GameObject: {fileID: 1359328109617525607}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52cdf4e9e4ebd6946b240b9574e28426, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f14e6b04cfa93946b617be5c33cd183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 4582097777061371392}
-  speed: 40
-  gravity: -9.81
-  groundCheck: {fileID: 4582097776826457233}
-  groundDistance: 0.4
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 512
---- !u!1 &4582097777832535700
+  speed: 12
+--- !u!114 &1359328109617525606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359328109617525607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: ca04c52b965a6b144a7af7a82d27a25f,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359328109617525625}
+        m_TargetAssemblyTypeName: NewInputSystem, Assembly-CSharp
+        m_MethodName: OnMovementChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e6abc74f-3668-49f5-863a-93abfcbf3e8e
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359328110389857216}
+        m_TargetAssemblyTypeName: MouseController, Assembly-CSharp
+        m_MethodName: MouseControl
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c1fb2d89-75e7-475b-baad-c6d15123ef28
+    m_ActionName: Player/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a2264c95-3a10-4bba-91ea-ce39e53afee7
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b2be3fe9-0090-4e7e-ae8a-719efc6aa39b
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 83eb6808-56b1-4834-b1fd-e0dce7aa9f4d
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 482cfe62-37a2-4d3f-8f48-339b7ba9b0dc
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 795af5c0-713d-4176-b43c-c5f6da6c574e
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: acde5d34-36b5-4baf-8898-df3ee88df4ce
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cd8de439-5768-45e9-9843-6ee285e1119e
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 65f4db35-403f-431b-917a-f7e9d927c1ad
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dd656e81-a0c7-4776-8661-5fdf3e793eb7
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 600dd6ec-58fd-4bd1-aeca-b9aa9974691c
+    m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359328109617525625}
+        m_TargetAssemblyTypeName: NewInputSystem, Assembly-CSharp
+        m_MethodName: Flying
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f65fde08-a08a-4ff2-9180-b3fb5743591e
+    m_ActionName: Player/Fly[/Keyboard/space,/Keyboard/leftShift]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!1 &1359328110389857230
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,38 +319,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4582097777832535701}
-  - component: {fileID: 4582097777832535704}
-  - component: {fileID: 4582097777832535707}
-  - component: {fileID: 4582097777832535706}
+  - component: {fileID: 1359328110389857231}
+  - component: {fileID: 1359328110389857218}
+  - component: {fileID: 1359328110389857217}
+  - component: {fileID: 1359328110389857216}
   m_Layer: 0
   m_Name: PlayerCamera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4582097777832535701
+--- !u!4 &1359328110389857231
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4582097777832535700}
+  m_GameObject: {fileID: 1359328110389857230}
   m_LocalRotation: {x: -0, y: 0.9950192, z: -0, w: -0.099684015}
   m_LocalPosition: {x: -0.0010192605, y: 0.59099936, z: -0.010007659}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4582097777061371394}
+  m_Father: {fileID: 1359328109617525592}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 191.44199, z: 0}
---- !u!20 &4582097777832535704
+--- !u!20 &1359328110389857218
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4582097777832535700}
+  m_GameObject: {fileID: 1359328110389857230}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -274,25 +387,25 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &4582097777832535707
+--- !u!81 &1359328110389857217
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4582097777832535700}
+  m_GameObject: {fileID: 1359328110389857230}
   m_Enabled: 1
---- !u!114 &4582097777832535706
+--- !u!114 &1359328110389857216
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4582097777832535700}
+  m_GameObject: {fileID: 1359328110389857230}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e9c15d156cecf343a3f3a74697b3e89, type: 3}
+  m_Script: {fileID: 11500000, guid: ea45918a364ce9f4f8c6425ebee98b40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
-  playerBody: {fileID: 4582097777061371394}
+  playerBody: {fileID: 1359328109617525592}
+  mouseSensitivity: 30
